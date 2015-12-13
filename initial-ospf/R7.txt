@@ -2,9 +2,6 @@
 no service timestamps debug uptime
 no service timestamps log uptime
 !
-hostname R7
-!
-no ip domain lookup
 ip routing
 ipv6 unicast-routing
 !
@@ -48,8 +45,6 @@ line vty 0 4
  privilege level 15
  no login
 !
-end
-
 
 hostname R7-CSR
 interface GigabitEthernet2

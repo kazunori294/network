@@ -1,7 +1,6 @@
 no service timestamps debug uptime
 no service timestamps log uptime
 !
-hostname R2
 !
 no ip domain lookup
 ip routing
@@ -66,12 +65,6 @@ line vty 0 4
  privilege level 15
  no login
 !
-end
-
-
-!
-end
-
 hostname R2-CSR
 interface GigabitEthernet2
  ip address 10.1.1.2 255.255.0.0

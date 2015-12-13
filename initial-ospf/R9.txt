@@ -2,8 +2,6 @@
 no service timestamps debug uptime
 no service timestamps log uptime
 !
-hostname R9
-!
 no ip domain lookup
 ip routing
 ipv6 unicast-routing
@@ -38,11 +36,6 @@ line vty 0 4
  privilege level 15
  no login
 !
-end
-
-
-!
-end
 hostname R9-CSR
 interface GigabitEthernet2
  ip address 10.1.1.9255.255.0.0

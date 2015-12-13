@@ -2,7 +2,6 @@
 no service timestamps debug uptime
 no service timestamps log uptime
 !
-hostname R6
 !
 no ip domain lookup
 ip routing
@@ -38,7 +37,6 @@ line vty 0 4
  privilege level 15
  no login
 !
-end
 
 
 hostname R6-CSR
