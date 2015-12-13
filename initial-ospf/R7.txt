@@ -1,54 +1,134 @@
 
+!
+! Last configuration change at 11:22:41 UTC Sun Dec 13 2015
+!
+version 15.4
 no service timestamps debug uptime
 no service timestamps log uptime
+no platform punt-keepalive disable-kernel-core
+platform console serial
 !
-ip routing
+hostname R7-CSR
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+
+!
+!
+!
 ipv6 unicast-routing
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+multilink bundle-name authenticated
+!
+!
+license udi pid CSR1000V sn 9A3UYTHV466
+license boot level premium
+spanning-tree extend system-id
+!
+!
+redundancy
+ mode none
+!
+!
+!
+!
 !
 cdp run
 !
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
 interface Loopback0
- ipv6 address 2001:150:7:7::7/128
  ip address 150.1.7.7 255.255.255.255
+ ipv6 address 2001:150:7:7::7/128
 !
 interface GigabitEthernet1
+ no ip address
+ negotiation auto
  cdp enable
- no shutdown
 !
 interface GigabitEthernet1.7
- encapsulation dot1q 7
+ encapsulation dot1Q 7
  ip address 155.1.7.7 255.255.255.0
  ipv6 address 2001:155:1:7::7/64
 !
 interface GigabitEthernet1.37
- encapsulation dot1q 37
+ encapsulation dot1Q 37
  ip address 155.1.37.7 255.255.255.0
  ipv6 address 2001:155:1:37::7/64
 !
 interface GigabitEthernet1.67
- encapsulation dot1q 67
+ encapsulation dot1Q 67
  ip address 155.1.67.7 255.255.255.0
  ipv6 address 2001:155:1:67::7/64
 !
 interface GigabitEthernet1.79
- encapsulation dot1q 79
+ encapsulation dot1Q 79
  ip address 155.1.79.7 255.255.255.0
  ipv6 address 2001:155:1:79::7/64
 !
+interface GigabitEthernet2
+ ip address 10.1.1.7 255.255.0.0
+ negotiation auto
+!
+!
+virtual-service csr_mgmt
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+control-plane
+!
+!
 line con 0
  exec-timeout 0 0
- logging synchronous
  privilege level 15
- no login
-!
+ logging synchronous
+ stopbits 1
 line vty 0 4
  privilege level 15
  no login
 !
-
-hostname R7-CSR
-interface GigabitEthernet2
- ip address 10.1.1.7 255.255.0.0
- no shutdown
- negotiation auto
 !
+end
