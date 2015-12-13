@@ -1,6 +1,6 @@
 
 !
-! Last configuration change at 14:41:41 UTC Sun Dec 13 2015
+! Last configuration change at 14:53:57 UTC Sun Dec 13 2015
 !
 version 15.4
 no service timestamps debug uptime
@@ -149,7 +149,14 @@ line con 0
  privilege level 15
  logging synchronous
  stopbits 1
-line vty 0 4
+line vty 0
+ privilege level 15
+ no login
+line vty 1
+ privilege level 15
+ no login
+ length 0
+line vty 2 4
  privilege level 15
  no login
 !
